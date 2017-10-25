@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+NAME="$1"
+PATH="$2"
+
+CONTENT=\
+"-module($NAME).\n"\
+"-export([run/1]).\n"\
+"\n"\
+"run(Arg) -> Arg.\n"
+
+if [ ! -f "$PATH" ]; then
+    echo -ne "$CONTENT" >> "$PATH"
+fi
