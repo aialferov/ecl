@@ -1,5 +1,5 @@
 {application, ecl, [
-    {description, "Command fine code runner"},
+    {description, "Erlang code as a command line tool"},
     {id, "ecl"},
     {vsn, "0.1.0"},
     {modules, []},
