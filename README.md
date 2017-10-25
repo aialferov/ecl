@@ -102,7 +102,7 @@ $ make edit listx
 ```
 ```
 -module(ecl_listx).
--export([run/2]). % note the line was changed from the default "run/1"
+-export([run/2]). % you need to change the line from the default "run/1"
 
 run(List, Factor) -> [X * Factor || X <- List].
 ```
@@ -118,7 +118,7 @@ $ make edit arith
 ```
 ```
 -module(ecl_arith).
--export([run/3]). % note the line was changed from the default "run/1"
+-export([run/3]). % you need to change the line from the default "run/1"
 
 run(add, A, B) -> A + B;
 run(mult, A, B) -> A * B.
