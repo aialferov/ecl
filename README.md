@@ -95,7 +95,7 @@ $ make uninstall
 
 ## More examples
 
-1. Mutiple each element of list by a specified factor:
+Mutiple each element of list by a specified factor.
 
 ```
 $ make edit listx
@@ -111,7 +111,7 @@ $ make run listx [1,2,3,4,5] 3
 [3,6,9,12,15]
 ```
 
-2. Subcommand
+Subcommand.
 
 ```
 $ make edit arith
