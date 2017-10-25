@@ -1,11 +1,12 @@
 PROJECT = ecl
 
+EDITOR = vi
 REBAR = ./rebar3
 
-PREFIX := usr/local
+PREFIX = usr/local
 
-BINDIR := bin
-BINPATH := $(DESTDIR)/$(PREFIX)/$(BINDIR)
+BINDIR = bin
+BINPATH = $(DESTDIR)/$(PREFIX)/$(BINDIR)
 BINPATHIN := $(shell $(REBAR) path --bin)
 
 BUILDDIR = _build
@@ -36,7 +37,7 @@ endif
 
 edit:
 	@scripts/create $(PROJECT)_$(RUN_ARGS) src/$(PROJECT)_$(RUN_ARGS).erl
-	@vi src/$(PROJECT)_$(RUN_ARGS).erl
+	@$(EDITOR) src/$(PROJECT)_$(RUN_ARGS).erl
 
 ifeq (run,$(firstword $(MAKECMDGOALS)))
   # use the rest as arguments for "run"
