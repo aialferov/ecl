@@ -58,6 +58,16 @@ $ make run rev [1,2,3,4,5]
 
 We are done.
 
+#### Hint
+
+Run in one window:
+
+```
+watch make run rev [1,2,3,4,5]
+```
+
+and edit your code in another one.
+
 ### Command line tool
 
 Having the command line tool of our code in the system as simple as:
@@ -81,4 +91,41 @@ To uninstall:
 
 ```
 $ make uninstall
+```
+
+## More examples
+
+1. Mutiple each element of list by a specified factor:
+
+```
+$ make edit listx
+```
+```
+-module(ecl_listx).
+-export([run/2]). % note the line was changed from the default "run/1"
+
+run(List, Factor) -> [X * Factor || X <- List].
+```
+```
+$ make run listx [1,2,3,4,5] 3
+[3,6,9,12,15]
+```
+
+2. Subcommand
+
+```
+$ make edit arith
+```
+```
+-module(ecl_arith).
+-export([run/3]). % note the line was changed from the default "run/1"
+
+run(add, A, B) -> A + B;
+run(mult, A, B) -> A * B.
+```
+```
+$ make run arith add 3 5
+8
+$ make run arith mult 3 5
+15
 ```
