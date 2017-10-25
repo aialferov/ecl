@@ -6,7 +6,7 @@
 main([]) -> io:format(?Usage);
 
 main([Command|Args]) ->
-    io:format(apply(module(Command), run, args(Args))).
+    io:format("~p~n", [apply(module(Command), run, args(Args))]).
 
 module(Command) ->
     list_to_atom(atom_to_list(?MODULE) ++ [$_|Command]).

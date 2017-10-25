@@ -1,16 +1,18 @@
 PROJECT = ecl
 
-REBAR := ./rebar3
+REBAR = ./rebar3
 
-BUILDDIR := _build
+BUILDDIR = _build
+
+export QUIET = 1
 
 all:
 	$(REBAR) escriptize
 	$(REBAR) unlock
 
 build:
-	$(REBAR) compile
-	$(REBAR) unlock
+	@$(REBAR) escriptize
+	@$(REBAR) unlock
 
 clean:
 	$(REBAR) clean -a
@@ -26,3 +28,13 @@ upgrade:
 shell:
 	$(REBAR) shell
 	$(REBAR) unlock
+
+ifeq (run,$(firstword $(MAKECMDGOALS)))
+  # use the rest as arguments for "run"
+  RUN_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
+  # ...and turn them into do-nothing targets
+  $(eval $(RUN_ARGS):;@:)
+endif
+
+run: build
+	@_build/default/bin/ecl $(RUN_ARGS)
