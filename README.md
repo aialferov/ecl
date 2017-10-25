@@ -75,7 +75,7 @@ $ ecl rev [1,2,3,4,5]
 
 Just "ecl" instead of "make run".
 
-## Uninstall
+### Uninstall command line tool
 
 To uninstall:
 
