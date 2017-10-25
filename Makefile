@@ -2,7 +2,12 @@ PROJECT = ecl
 
 REBAR = ./rebar3
 
+PREFIX := usr/local
+
+BINDIR := bin
+BINPATH := $(DESTDIR)/$(PREFIX)/$(BINDIR)
 BINPATHIN := $(shell $(REBAR) path --bin)
+
 BUILDDIR = _build
 
 export QUIET = 1
@@ -46,3 +51,11 @@ build:
 
 run: build
 	@$(BINPATHIN)/$(PROJECT) $(RUN_ARGS)
+
+install:
+	mkdir -p $(BINPATH)
+	install -p $(BINPATHIN)/$(PROJECT) $(BINPATH)
+
+uninstall:
+	rm -f $(BINPATH)/$(PROJECT)
+	rmdir -p --ignore-fail-on-non-empty $(BINPATH)
