@@ -69,11 +69,11 @@ $ make install
 Now you can run your "reverse" anywhere pretty much the same way:
 
 ```
-$ ecl run rev [1,2,3,4,5]
+$ ecl rev [1,2,3,4,5]
 [5,4,3,2,1]
 ```
 
-Just "ecl" instead of "make".
+Just "ecl" instead of "make run".
 
 ## Uninstall
 
