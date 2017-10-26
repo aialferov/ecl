@@ -34,7 +34,7 @@ $ make run rev [1,2,3,4,5]
 ```
 
 Well, that did nothing with our list as expected, so let's do the actual job.
-Edit file again:
+Edit the file again:
 
 ```
 $ make edit rev
@@ -60,7 +60,7 @@ We are done.
 
 #### Hint
 
-Run in one window:
+You can see how changes affect the output continuously. In one window run:
 
 ```
 watch make run rev [1,2,3,4,5]
@@ -76,7 +76,7 @@ Having the command line tool of our code in the system as simple as:
 $ make install
 ```
 
-Now you can run your "reverse" anywhere pretty much the same way:
+Now we can run our "reverse" anywhere pretty much the same way:
 
 ```
 $ ecl rev [1,2,3,4,5]
@@ -95,14 +95,14 @@ $ make uninstall
 
 ## More examples
 
-Mutiple each element of list by a specified factor.
+Mutiply each element of a list by a specified factor.
 
 ```
 $ make edit listx
 ```
 ```
 -module(ecl_listx).
--export([run/2]). % you need to change the line from the default "run/1"
+-export([run/2]). % you need to change this line from the default "run/1"
 
 run(List, Factor) -> [X * Factor || X <- List].
 ```
@@ -118,7 +118,7 @@ $ make edit arith
 ```
 ```
 -module(ecl_arith).
--export([run/3]). % you need to change the line from the default "run/1"
+-export([run/3]). % you need to change this line from the default "run/1"
 
 run(add, A, B) -> A + B;
 run(mult, A, B) -> A * B.
