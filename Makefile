@@ -39,6 +39,9 @@ edit:
 	@scripts/create $(PROJECT)_$(RUN_ARGS) src/$(PROJECT)_$(RUN_ARGS).erl
 	@$(EDITOR) src/$(PROJECT)_$(RUN_ARGS).erl
 
+list:
+	@ls src/$(PROJECT)_* | cut -d\_ -f2 | cut -d\. -f1
+
 ifeq (run,$(firstword $(MAKECMDGOALS)))
   # use the rest as arguments for "run"
   RUN_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
